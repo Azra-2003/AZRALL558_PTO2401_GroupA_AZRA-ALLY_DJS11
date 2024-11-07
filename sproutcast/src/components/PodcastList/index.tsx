@@ -24,26 +24,27 @@ export const PodcastList: React.FC<PodcastListType> = ({ podcastList }) => {
   const [isAscending, setIsAscending] = useState(true);
   const [genre, setGenre] = useState("");
   const [sortBy, setSortBy] = useState("Episode title");
-  const [searchQuery,setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("");
   const getSortedAndFilteredPodcastList = () => {
     return podcastList
       .sort((podcastA, podcastB) => {
-        if (sortBy==="Updated date"){
-
+        if (sortBy === "Updated date") {
           if (isAscending) {
-              return podcastA.updated > podcastB.updated ? -1 : 1;
-            }
-            return podcastA.updated >  podcastB.updated ? 1 : -1;   
-      }
-      if (isAscending) {
-        return podcastA.title <  podcastB.title? -1 : 1;
-      }
-      return  podcastA.title<  podcastB.title ? 1 : -1;
+            return podcastA.updated > podcastB.updated ? -1 : 1;
+          }
+          return podcastA.updated > podcastB.updated ? 1 : -1;
+        }
+        if (isAscending) {
+          return podcastA.title < podcastB.title ? -1 : 1;
+        }
+        return podcastA.title < podcastB.title ? 1 : -1;
       })
       .filter((podcast) => {
-        let matchesSearch=true
-        if (searchQuery.length>0){
-        matchesSearch=podcast.title.toLowerCase().includes(searchQuery.toLowerCase())
+        let matchesSearch = true;
+        if (searchQuery.length > 0) {
+          matchesSearch = podcast.title
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
         }
         if (genre === "") {
           return true && matchesSearch;
@@ -52,41 +53,56 @@ export const PodcastList: React.FC<PodcastListType> = ({ podcastList }) => {
       });
   };
   return (
-    <section>
-      <section className="flex gap-10">
-        {isAscending && (
-          <FaSortAlphaDown
-            size={30}
-            className="cursor-pointer"
-            onClick={() => setIsAscending(!isAscending)}
-          ></FaSortAlphaDown>
-        )}
-        {!isAscending && (
-          <FaSortAlphaUp
-            size={30}
-            className="cursor-pointer"
-            onClick={() => setIsAscending(!isAscending)}
-          ></FaSortAlphaUp>
-        )}
-         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          {["Episode title","Updated date"].map((value, index: number) => (
-            <option key={index} value={value}>{value}</option>
+    <section className="flex gap-10">
+      <section className="grow ">
+        <section className="flex gap-10">
+            <input
+              type="text"
+              placeholder="Search By Title"
+              className="p-2 grow bg-gray-500 text-white"
+              onChange={(e) => setSearchQuery(e.target.value)}
+            ></input>
+          </section>
+        <section className="mt-10 grid grid-cols-3 gap-20">
+          {getSortedAndFilteredPodcastList().map((podcast, index: number) => (
+            <PodcastCard key={index} podcast={podcast}></PodcastCard>
           ))}
-        </select>
-        <select value={genre} onChange={(e) => setGenre(e.target.value)}>
-          <option value={""}>All</option>
-          {categories.map((genre, index: number) => (
-            <option key={index} value={genre.id}>{genre.name}</option>
-          ))}
-        </select>
-        <section>
-          <input type="text" placeholder="Search By Title" className="p-2" onChange={e=>setSearchQuery(e.target.value)}></input>
         </section>
       </section>
-      <section className="mt-10 grid grid-cols-3 gap-20">
-        {getSortedAndFilteredPodcastList().map((podcast, index: number) => (
-          <PodcastCard key={index} podcast={podcast}></PodcastCard>
-        ))}
+      <section className="w-56 gap-10">
+        <section className="flex gap-3 mb-10">
+          {isAscending && (
+            <FaSortAlphaDown
+              size={30}
+              className="cursor-pointer"
+              onClick={() => setIsAscending(!isAscending)}
+            ></FaSortAlphaDown>
+          )}
+          {!isAscending && (
+            <FaSortAlphaUp
+              size={30}
+              className="cursor-pointer"
+              onClick={() => setIsAscending(!isAscending)}
+            ></FaSortAlphaUp>
+          )}
+          <select className="bg-gray-600" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            {["Episode title", "Updated date"].map((value, index: number) => (
+              <option key={index} value={value}>
+                {value}
+              </option>
+            ))}
+          </select>
+        </section>
+        <section>
+        <select className="bg-gray-600" value={genre} onChange={(e) => setGenre(e.target.value)}>
+            <option value={""}>All</option>
+            {categories.map((genre, index: number) => (
+              <option key={index} value={genre.id}>
+                {genre.name}
+              </option>
+            ))}
+          </select>
+        </section>
       </section>
     </section>
   );

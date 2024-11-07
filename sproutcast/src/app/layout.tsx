@@ -37,7 +37,7 @@ export default function RootLayout({
           <FavoritesProvider>
             <AudioPlayerProvider>
               <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-gray-900 dark:text-white h-screen`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased  bg-green-800 dark:bg-black dark:text-white h-screen`}
               >
                 <div className="grid items-start gap-10 p-10 ">
                   <section>

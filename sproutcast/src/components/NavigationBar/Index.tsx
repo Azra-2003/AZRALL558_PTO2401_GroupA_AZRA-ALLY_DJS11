@@ -4,7 +4,10 @@ import { ThemeToggle } from "../ThemeToggle"
 
 export const NavigationBar = () => {
     return (
-        <nav className="flex gap-5 w-full">
+        <nav className="flex justify-center align-center gap-5 14:13
+        
+        
+        w-full">
             <section className="flex gap-5 text-lg font-bold dark:text-white">
               <Image
                src={"/images/logo.png"} 

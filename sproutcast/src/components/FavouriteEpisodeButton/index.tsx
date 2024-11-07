@@ -32,7 +32,7 @@ export const FavouritePodcastEpisodeButton = ({
           });
         }
       }}
-      color={isFavorite(favouriteId) ? "red" : ""}
+      color={isFavorite(favouriteId) ? "#00FF7F" : ""}
       size={30}
     ></FaHeart>
   );
