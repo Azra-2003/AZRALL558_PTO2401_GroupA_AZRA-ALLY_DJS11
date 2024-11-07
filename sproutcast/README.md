@@ -3,18 +3,20 @@ Welcome to SproutCast – an intuitive podcast platform crafted with Next.js, Ty
 
 Built on the reliability of TypeScript, SproutCast ensures high code consistency while leveraging React Context and useState to manage dynamic state changes. Whether you're browsing episodes, creating playlists, or enjoying uninterrupted playback, SproutCast streamlines podcast discovery with a modern, user-friendly interface.
 
-Check out the live version here: 
+View the live version here: https://sproutcast.netlify.app/
+
+IMPORTANT
+Feature Limitation:
+The confirmation prompt when closing a page while audio is playing could not be implemented due to limitations with the Next.js App Router. You can find more information about this issue here: [Next.js Forum.](https://www.reddit.com/r/nextjs/s/aclHWP3Kyz)
 
 Running the App
 To get started locally, follow these steps:
 
 Install dependencies:
 bash
-Copy code
 npm install   
 Start the development server:
 bash
-Copy code
 npm run dev
 Open your browser and visit http://localhost:3000 to interact with the app.
 App Architecture
@@ -38,10 +40,6 @@ SproutCast supports various interactive features, such as dynamic sorting, episo
 
 Sorting Episodes: Episodes are initially shown in chronological order. Users can adjust the sort order using useState, either ascending or descending.
 Persistent Audio Playback: The audio player’s state is managed globally via audioContext.tsx, so users can continue listening without interruption, even when switching pages.
-
-IMPORTANT
-Feature Limitation:
-The confirmation prompt when closing a page while audio is playing could not be implemented due to limitations with the Next.js App Router. You can find more information about this issue here: Next.js Forum.
 
 Contact Me: allyazra2003@gmail.com
             +27837710786
