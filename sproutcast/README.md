@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Overview
+Welcome to SproutCast – an intuitive podcast platform crafted with Next.js, TypeScript, and styled using Tailwind CSS. Designed to provide podcast lovers with an immersive experience, SproutCast allows users to explore, play, and organize their favorite podcasts seamlessly across desktop and mobile devices.
 
-## Getting Started
+Built on the reliability of TypeScript, SproutCast ensures high code consistency while leveraging React Context and useState to manage dynamic state changes. Whether you're browsing episodes, creating playlists, or enjoying uninterrupted playback, SproutCast streamlines podcast discovery with a modern, user-friendly interface.
 
-First, run the development server:
+Check out the live version here: 
 
-```bash      
+Running the App
+To get started locally, follow these steps:
+
+Install dependencies:
+bash
+Copy code
+npm install   
+Start the development server:
+bash
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open your browser and visit http://localhost:3000 to interact with the app.
+App Architecture
+Public Folder: Houses all static assets such as images and logos.
+src Folder:
+components: Contains all the reusable React components.
+types: Defines TypeScript types for better code safety and maintainability.
+Routing & Navigation
+SproutCast leverages Next.js's App Router for file-based routing. Each page.tsx file directly maps to a corresponding URL, allowing for clear and efficient routing.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Rendering Strategy
+Client-Side Rendering: Content is dynamically rendered on the browser, providing a responsive experience.
+Server-Side Rendering: Pages are pre-rendered server-side for improved loading performance, ensuring a faster initial render.
+State Management
+Global State: Managed with React Context, ensuring consistency and persistence of data across different pages. For example, the audioContext.tsx manages the state of the audio player, so it remains uninterrupted as users navigate through different pages.
+Local State: Local states are managed using useState, which handles component-specific states like sorting podcasts. This isolates changes to individual components without affecting others.
+React Hooks:
+useEffect: Helps initialize data and trigger side effects when components load, making it ideal for preloading data on page visits.
+How to Use SproutCast
+SproutCast supports various interactive features, such as dynamic sorting, episode search, and audio playback. Here are a few key functionalities:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sorting Episodes: Episodes are initially shown in chronological order. Users can adjust the sort order using useState, either ascending or descending.
+Persistent Audio Playback: The audio player’s state is managed globally via audioContext.tsx, so users can continue listening without interruption, even when switching pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+IMPORTANT
+Feature Limitation:
+The confirmation prompt when closing a page while audio is playing could not be implemented due to limitations with the Next.js App Router. You can find more information about this issue here: Next.js Forum.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contact Me: allyazra2003@gmail.com
+            +27837710786
