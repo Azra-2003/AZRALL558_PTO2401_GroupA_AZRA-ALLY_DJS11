@@ -16,10 +16,11 @@ The confirmation prompt when closing a page while audio is playing could not be 
 ## Running the App To get started locally, follow these steps:
 
 ## Install dependencies:
-'' npm install
+`npm install`
 
 ## Start the development server:
-'' npm run dev
+`npm run dev`
+
 
  Open your browser and visit http://localhost:3000 to interact with the app. 
 
